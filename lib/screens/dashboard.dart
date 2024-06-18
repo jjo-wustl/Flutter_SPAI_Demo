@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 import '../widgets/attendance_widget.dart';
-import '../widgets/lessons_content.dart'; 
+import '../widgets/lessons_content.dart';
 
 class DashboardScreen extends StatefulWidget {
   @override
@@ -28,7 +29,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Dashboard'),
-        automaticallyImplyLeading: false, 
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -62,7 +63,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 }
 
-class DashboardContent extends StatelessWidget {
+class DashboardContent extends StatefulWidget {
+  @override
+  _DashboardContentState createState() => _DashboardContentState();
+}
+
+class _DashboardContentState extends State<DashboardContent> {
+  bool _showCalendar = false;
+
+  void _toggleCalendarVisibility() {
+    setState(() {
+      _showCalendar = !_showCalendar;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
@@ -84,7 +98,20 @@ class DashboardContent extends StatelessWidget {
               ),
             ),
           ),
-          AttendanceWidget(), // attendance widget
+          GestureDetector(
+            onTap: _toggleCalendarVisibility,
+            child: AttendanceWidget(), // attendance widget
+          ),
+          if (_showCalendar)
+            Column(
+              children: [
+                CalendarWidget(),
+                ElevatedButton(
+                  onPressed: _toggleCalendarVisibility,
+                  child: Text('Close Calendar'),
+                ),
+              ],
+            ),
           GridView.count(
             crossAxisCount: isSmallScreen ? 2 : 4,
             shrinkWrap: true,
@@ -120,6 +147,149 @@ class DashboardContent extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class CalendarWidget extends StatefulWidget {
+  @override
+  _CalendarWidgetState createState() => _CalendarWidgetState();
+}
+
+class _CalendarWidgetState extends State<CalendarWidget> {
+  DateTime _selectedDay = DateTime.now();
+  DateTime _focusedDay = DateTime.now();
+
+  void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
+    setState(() {
+      _selectedDay = selectedDay;
+      _focusedDay = focusedDay;
+    });
+    // Show the detailed view
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Attendance Summary'),
+          content: AttendanceSummary(selectedDay: _selectedDay),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TableCalendar(
+      firstDay: DateTime.utc(2020, 1, 1),
+      lastDay: DateTime.utc(2030, 12, 31),
+      focusedDay: _focusedDay,
+      selectedDayPredicate: (day) => isSameDay(_selectedDay, day),
+      onDaySelected: _onDaySelected,
+      calendarFormat: CalendarFormat.month,
+      startingDayOfWeek: StartingDayOfWeek.monday,
+      headerStyle: HeaderStyle(
+        formatButtonVisible: false,
+        titleCentered: true,
+      ),
+      calendarStyle: CalendarStyle(
+        selectedDecoration: BoxDecoration(
+          color: Colors.blue,
+          shape: BoxShape.circle,
+        ),
+        todayDecoration: BoxDecoration(
+          color: Colors.orange,
+          shape: BoxShape.circle,
+        ),
+      ),
+    );
+  }
+}
+
+class AttendanceSummary extends StatelessWidget {
+  final DateTime selectedDay;
+
+  AttendanceSummary({required this.selectedDay});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text('Date: ${selectedDay.toLocal()}'.split(' ')[0]),
+        SizedBox(height: 16.0),
+        Text('Attendance Details:'),
+        // Add your detailed attendance information here
+        Text('Present: 21 days'),
+        Text('Leave(s): 2.5 days'),
+        Text('Absent: 1 day'),
+        // More details as needed
+      ],
+    );
+  }
+}
+
+class CalendarDetails extends StatelessWidget {
+  final DateTime selectedDay;
+
+  CalendarDetails({required this.selectedDay});
+
+  @override
+  Widget build(BuildContext context) {
+    // Here, you would retrieve the actual data for the selected day.
+    // For this example, we are using static data.
+
+    return Column(
+      children: [
+        Text('Detailed attendance for ${selectedDay.toLocal()}'.split(' ')[0]),
+        SizedBox(height: 16.0),
+        Table(
+          columnWidths: {
+            0: FlexColumnWidth(1),
+            1: FlexColumnWidth(3),
+          },
+          border: TableBorder.all(color: Colors.grey),
+          children: [
+            TableRow(children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Date'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(selectedDay.toLocal().toString().split(' ')[0]),
+              ),
+            ]),
+            TableRow(children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Status'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Present'), // This should be dynamic based on the actual status
+              ),
+            ]),
+            TableRow(children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('Remarks'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text('No remarks'), // This should be dynamic based on actual remarks
+              ),
+            ]),
+          ],
+        ),
+      ],
     );
   }
 }
