@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>106262507523-fdso0htq4165d8b9ntn3om95cb3qlb0u.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.106262507523-fdso0htq4165d8b9ntn3om95cb3qlb0u</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD-wuw2PaC3RWwjjMmCHhqNoZvegKScgWA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>106262507523</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.spaiDemo1</string>
+	<key>PROJECT_ID</key>
+	<string>spaidemo2</string>
+	<key>STORAGE_BUCKET</key>
+	<string>spaidemo2.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:106262507523:ios:890380c1bde5f3d97d5e36</string>
+	<key>DATABASE_URL</key>
+	<string>https://spaidemo2-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

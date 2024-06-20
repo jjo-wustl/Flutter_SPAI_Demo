@@ -25,3 +25,13 @@ samples, guidance on mobile development, and a full API reference.
 
 # completed
 - added percent_indicator: ^4.2.2 to pubspec.yaml under dependencies to use circular progress indicator
+
+- flutterfire configure:
+i Firebase android app com.e is not registered on Firebase project spaidemo2.                                                 
+i Registered a new Firebase android app on Firebase project spaidemo2.                                                        
+i Firebase ios app com.example.spaiDemo1 is not registered on Firebase project spaidemo2.                                     
+i Registered a new Firebase ios app on Firebase project spaidemo2.                                                            
+i Firebase macos app com.example.spaiDemo1 registered.                                                                        
+i Firebase web app spai_demo_1 (web) registered.                                                                              
+i Firebase windows app spai_demo_1 (windows) is not registered on Firebase project spaidemo2.                                 
+i Registered a new Firebase windows app on Firebase project spaidemo2.   
