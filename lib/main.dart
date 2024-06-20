@@ -3,7 +3,8 @@ import 'screens/sign_in.dart';
 import 'screens/boarding.dart';
 import 'screens/dashboard.dart';
 
-void main() {
+
+void main(){
   runApp(MyApp());
 }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'chapter_widget.dart';
+import 'package:spai_demo_1/screens/lesson_detail_screen.dart';
 
 class LessonsContent extends StatefulWidget {
   @override
@@ -52,7 +53,7 @@ class _LessonsContentState extends State<LessonsContent> with SingleTickerProvid
           child: TabBarView(
             controller: _tabController,
             children: [
-              GrammarTabContent(),
+              GrammarTabContent(onRedoPressed: _navigateToLessonDetail),
               Center(child: Text('Listening Content')),
               Center(child: Text('Vocab Content')),
             ],
@@ -61,9 +62,19 @@ class _LessonsContentState extends State<LessonsContent> with SingleTickerProvid
       ],
     );
   }
+
+  void _navigateToLessonDetail() {
+    Navigator.of(context).push(MaterialPageRoute(
+      builder: (context) => LessonDetailScreen(),
+    ));
+  }
 }
 
 class GrammarTabContent extends StatelessWidget {
+  final VoidCallback onRedoPressed;
+
+  GrammarTabContent({required this.onRedoPressed});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -79,6 +90,7 @@ class GrammarTabContent extends StatelessWidget {
                 'total': 12,
                 'buttonText1': 'Redo',
                 'buttonText2': 'Review',
+                'onButton1Pressed': onRedoPressed,
               },
               {
                 'title': 'PREPOSITIONS',
@@ -87,6 +99,7 @@ class GrammarTabContent extends StatelessWidget {
                 'total': 12,
                 'buttonText1': 'Redo',
                 'buttonText2': 'Review',
+                'onButton1Pressed': onRedoPressed,
               },
               // Add more volumes as needed
             ],
@@ -101,6 +114,7 @@ class GrammarTabContent extends StatelessWidget {
                 'total': 12,
                 'buttonText1': 'Redo',
                 'buttonText2': 'Review',
+                'onButton1Pressed': onRedoPressed,
               },
               {
                 'title': 'ARTICLES',
@@ -109,6 +123,7 @@ class GrammarTabContent extends StatelessWidget {
                 'total': 12,
                 'buttonText1': 'Redo',
                 'buttonText2': 'Review',
+                'onButton1Pressed': onRedoPressed,
               },
               // Add more volumes as needed
             ],

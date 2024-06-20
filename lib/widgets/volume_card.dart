@@ -8,6 +8,7 @@ class VolumeCard extends StatelessWidget {
   final int total;
   final String buttonText1;
   final String buttonText2;
+  final VoidCallback? onButton1Pressed;
 
   VolumeCard({
     required this.title,
@@ -16,6 +17,7 @@ class VolumeCard extends StatelessWidget {
     required this.total,
     required this.buttonText1,
     required this.buttonText2,
+    this.onButton1Pressed,
   });
 
   @override
@@ -50,7 +52,7 @@ class VolumeCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: onButton1Pressed,
                 child: Text(buttonText1),
               ),
               TextButton(

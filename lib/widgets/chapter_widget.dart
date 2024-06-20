@@ -41,6 +41,7 @@ class ChapterWidget extends StatelessWidget {
                   total: volume['total'],
                   buttonText1: volume['buttonText1'],
                   buttonText2: volume['buttonText2'],
+                  onButton1Pressed: volume['onButton1Pressed'], // Pass the callback here
                 ),
               );
             },
