@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'chapter_widget.dart';
 import 'package:spai_demo_1/screens/lesson_detail_screen.dart';
 
+
 class LessonsContent extends StatefulWidget {
   @override
   _LessonsContentState createState() => _LessonsContentState();
