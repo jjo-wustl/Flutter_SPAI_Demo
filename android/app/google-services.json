@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "106262507523",
+    "firebase_url": "https://spaidemo2-default-rtdb.firebaseio.com",
+    "project_id": "spaidemo2",
+    "storage_bucket": "spaidemo2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106262507523:android:5bd5b7a58fbec6d67d5e36",
+        "android_client_info": {
+          "package_name": "com.e"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106262507523-aj2n8ndvnfv6htp7kdagml6fkcp5an2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZu1w30tHgegCNBNi7mB38Fphs6JHRRNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106262507523-aj2n8ndvnfv6htp7kdagml6fkcp5an2r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "106262507523-fdso0htq4165d8b9ntn3om95cb3qlb0u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.spaiDemo1"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106262507523:android:3e3e9e5a48221ff37d5e36",
+        "android_client_info": {
+          "package_name": "com.example.english_test_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106262507523-aj2n8ndvnfv6htp7kdagml6fkcp5an2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZu1w30tHgegCNBNi7mB38Fphs6JHRRNQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106262507523-aj2n8ndvnfv6htp7kdagml6fkcp5an2r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "106262507523-fdso0htq4165d8b9ntn3om95cb3qlb0u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.spaiDemo1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
